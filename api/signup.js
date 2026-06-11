@@ -324,9 +324,10 @@ export default async function handler(req, res) {
     const users = await readUsers();
 
     if (users.some((user) => user.email === cleanEmail)) {
-      return res.status(409).json({
-        error: "An account with this email already exists.",
-      });
+      // Return a generic 200 that is indistinguishable from a real signup
+      // success so callers cannot enumerate registered email addresses.
+      // No session cookie is issued — the submitter has not authenticated.
+      return res.status(200).json({ ok: true });
     }
 
     const user = {
@@ -363,9 +364,8 @@ export default async function handler(req, res) {
       await rollbackUserCreation(createdUserDoc);
 
       if (error.message === "DUPLICATE_USER") {
-        return res.status(409).json({
-          error: "An account with this email already exists.",
-        });
+        // Same generic 200 as the non-Firestore path above.
+        return res.status(200).json({ ok: true });
       }
 
       throw error;
