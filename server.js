@@ -416,6 +416,15 @@ async function handleApi(req, res, pathname) {
       ? await getUserByEmail(email)
       : (await readUsers()).find((user) => user.email === email);
     if (existing) {
+      // Normalize response time so a duplicate is indistinguishable from a
+      // real signup by timing — a real signup always runs PBKDF2 before
+      // responding, so we must delay here to match that latency profile.
+      await normalizeAuthDelay();
+      console.warn("[signup] duplicate email attempt", {
+        email,
+        ip: clientId,
+        at: new Date().toISOString(),
+      });
       // Return a generic 200 that is indistinguishable from a real signup
       // success so callers cannot enumerate registered email addresses.
       // No session cookie is issued — the submitter has not authenticated.

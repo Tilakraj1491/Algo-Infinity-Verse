@@ -324,6 +324,15 @@ export default async function handler(req, res) {
     const users = await readUsers();
 
     if (users.some((user) => user.email === cleanEmail)) {
+      // Normalize response time so a duplicate is indistinguishable from a
+      // real signup by timing — a real signup always runs PBKDF2 before
+      // responding, so we must delay here to match that latency profile.
+      await normalizeAuthDelay();
+      console.warn("[signup] duplicate email attempt", {
+        email: cleanEmail,
+        ip: clientId,
+        at: new Date().toISOString(),
+      });
       // Return a generic 200 that is indistinguishable from a real signup
       // success so callers cannot enumerate registered email addresses.
       // No session cookie is issued — the submitter has not authenticated.
@@ -364,6 +373,12 @@ export default async function handler(req, res) {
       await rollbackUserCreation(createdUserDoc);
 
       if (error.message === "DUPLICATE_USER") {
+        await normalizeAuthDelay();
+        console.warn("[signup] duplicate email attempt", {
+          email: cleanEmail,
+          ip: clientId,
+          at: new Date().toISOString(),
+        });
         // Same generic 200 as the non-Firestore path above.
         return res.status(200).json({ ok: true });
       }
