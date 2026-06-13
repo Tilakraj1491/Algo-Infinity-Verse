@@ -1114,6 +1114,14 @@ const practiceProblems = [
     tags: ["Linked List", "Recursion"],
     acceptance: "58.5%",
     category: "linkedlist",
+    description:
+      "You are given the heads of two sorted linked lists list1 and list2. Merge the two lists into one sorted list by splicing together the nodes of the first two lists, and return the head of the merged linked list.",
+    constraints: [
+      "The number of nodes in both lists is in the range [0, 50]",
+      "-100 ≤ Node.val ≤ 100",
+      "Both list1 and list2 are sorted in non-decreasing order",
+    ],
+    followUp: "Can you solve it iteratively using O(1) extra space, and also recursively?",
   },
   {
     id: 4,
@@ -1122,6 +1130,13 @@ const practiceProblems = [
     tags: ["Arrays", "Divide & Conquer"],
     acceptance: "46.2%",
     category: "arrays",
+    description:
+      "Given an integer array nums, find the contiguous subarray (containing at least one number) which has the largest sum, and return its sum.",
+    constraints: [
+      "1 ≤ nums.length ≤ 10⁵",
+      "-10⁴ ≤ nums[i] ≤ 10⁴",
+    ],
+    followUp: "Can you solve it in O(n) time using Kadane's Algorithm?",
   },
   {
     id: 5,
@@ -1130,6 +1145,14 @@ const practiceProblems = [
     tags: ["Design", "Hash Table"],
     acceptance: "37.5%",
     category: "arrays",
+    description:
+      "Design a data structure that follows the constraints of a Least Recently Used (LRU) cache. Implement get(key) and put(key, value) operations. When the cache reaches its capacity, it should invalidate the least recently used item before inserting a new item.",
+    constraints: [
+      "1 ≤ capacity ≤ 3000",
+      "0 ≤ key, value ≤ 10⁴",
+      "At most 2 × 10⁵ calls will be made to get and put",
+    ],
+    followUp: "Can you implement both get and put in O(1) time complexity?",
   },
   {
     id: 6,
@@ -1138,6 +1161,15 @@ const practiceProblems = [
     tags: ["Graphs", "DFS", "BFS"],
     acceptance: "43.2%",
     category: "graphs",
+    description:
+      "Given a reference to a node in a connected undirected graph, return a deep copy (clone) of the graph. Each node in the graph contains a value and a list of its neighbors.",
+    constraints: [
+      "The number of nodes in the graph is in the range [0, 100]",
+      "1 ≤ Node.val ≤ 100",
+      "Node.val is unique for each node",
+      "There are no repeated edges and no self-loops",
+    ],
+    followUp: "Can you solve it using both BFS and DFS approaches?",
   },
   {
     id: 7,
@@ -1146,6 +1178,13 @@ const practiceProblems = [
     tags: ["DP", "Binary Search"],
     acceptance: "42.1%",
     category: "dp",
+    description:
+      "Given an integer array nums, return the length of the longest strictly increasing subsequence.",
+    constraints: [
+      "1 ≤ nums.length ≤ 2500",
+      "-10⁴ ≤ nums[i] ≤ 10⁴",
+    ],
+    followUp: "Can you improve from O(n²) DP to O(n log n) using binary search (patience sorting)?",
   },
   {
     id: 8,
@@ -1154,6 +1193,15 @@ const practiceProblems = [
     tags: ["Graphs", "BFS"],
     acceptance: "31.4%",
     category: "graphs",
+    description:
+      "Given two words, beginWord and endWord, and a dictionary wordList, return the number of words in the shortest transformation sequence from beginWord to endWord, such that only one letter can be changed at a time and each transformed word must exist in wordList. Return 0 if no such sequence exists.",
+    constraints: [
+      "1 ≤ beginWord.length ≤ 10",
+      "endWord.length == beginWord.length",
+      "1 ≤ wordList.length ≤ 5000",
+      "All words consist of lowercase English letters",
+    ],
+    followUp: "Can you find ALL shortest transformation sequences (Word Ladder II)?",
   },
   {
     id: 9,
@@ -1162,6 +1210,13 @@ const practiceProblems = [
     tags: ["Arrays", "Two Pointers"],
     acceptance: "48.7%",
     category: "arrays",
+    description:
+      "Given n non-negative integers representing an elevation map where the width of each bar is 1, compute how much water it can trap after raining.",
+    constraints: [
+      "1 ≤ height.length ≤ 2 × 10⁴",
+      "0 ≤ height[i] ≤ 10⁵",
+    ],
+    followUp: "Can you solve it in O(n) time and O(1) space using the two-pointer technique?",
   },
   {
     id: 10,
@@ -1170,6 +1225,13 @@ const practiceProblems = [
     tags: ["Linked List"],
     acceptance: "72.1%",
     category: "linkedlist",
+    description:
+      "Given the head of a singly linked list, reverse the list, and return the reversed list's head.",
+    constraints: [
+      "The number of nodes in the list is in the range [0, 5000]",
+      "-5000 ≤ Node.val ≤ 5000",
+    ],
+    followUp: "Can you solve it both iteratively and recursively?",
   },
   {
     id: 11,
@@ -1177,7 +1239,14 @@ const practiceProblems = [
     difficulty: "easy",
     tags: ["Trees", "DFS"],
     acceptance: "68.5%",
-    category: "trees",
+    ccategory: "trees",
+    description:
+      "Given the root of a binary tree, invert the tree, and return its root. Inverting means swapping the left and right children of every node.",
+    constraints: [
+      "The number of nodes is in the range [0, 100]",
+      "-100 ≤ Node.val ≤ 100",
+    ],
+    followUp: "Can you solve it both recursively and iteratively using a queue or stack?",
   },
   {
     id: 12,
@@ -1186,6 +1255,13 @@ const practiceProblems = [
     tags: ["Trees", "Recursion"],
     acceptance: "28.4%",
     category: "trees",
+    description:
+      "Given the root of a binary tree, determine if it is a valid binary search tree (BST). A valid BST is defined as: the left subtree of a node contains only nodes with keys less than the node's key, the right subtree only contains nodes with keys greater than the node's key, and both left and right subtrees must also be binary search trees.",
+    constraints: [
+      "The number of nodes is in the range [1, 10⁴]",
+      "-2³¹ ≤ Node.val ≤ 2³¹ - 1",
+    ],
+    followUp: "Can you solve it without recursion, e.g. using iterative inorder traversal or Morris Traversal?",
   },
   {
     id: 13,
@@ -1194,6 +1270,13 @@ const practiceProblems = [
     tags: ["Graphs", "DFS"],
     acceptance: "54.8%",
     category: "graphs",
+    description:
+      "Given an m x n 2D binary grid which represents a map of '1's (land) and '0's (water), return the number of islands. An island is surrounded by water and is formed by connecting adjacent lands horizontally or vertically.",
+    constraints: [
+      "1 ≤ m, n ≤ 300",
+      "grid[i][j] is '0' or '1'",
+    ],
+    followUp: "Can you solve it using both DFS and Union-Find (Disjoint Set Union)?",
   },
   {
     id: 14,
@@ -1202,6 +1285,13 @@ const practiceProblems = [
     tags: ["DP", "Arrays"],
     acceptance: "42.3%",
     category: "dp",
+    description:
+      "You are a professional robber planning to rob houses along a street. Each house has a certain amount of money stashed, and adjacent houses have security systems connected — if two adjacent houses are broken into on the same night, the alarm will go off. Given an integer array nums representing the amount of money in each house, return the maximum amount of money you can rob without robbing two adjacent houses.",
+    constraints: [
+      "1 ≤ nums.length ≤ 100",
+      "0 ≤ nums[i] ≤ 400",
+    ],
+    followUp: "What if the houses are arranged in a circle, where the first and last houses are adjacent? (House Robber II)",
   },
   {
     id: 15,
@@ -1210,6 +1300,15 @@ const practiceProblems = [
     tags: ["Graphs", "Topological Sort"],
     acceptance: "44.7%",
     category: "graphs",
+    description:
+      "There are numCourses courses labeled from 0 to numCourses - 1. You are given an array prerequisites where prerequisites[i] = [ai, bi] indicates that you must take course bi first if you want to take course ai. Return true if you can finish all courses, otherwise return false.",
+    constraints: [
+      "1 ≤ numCourses ≤ 2000",
+      "0 ≤ prerequisites.length ≤ 5000",
+      "prerequisites[i].length == 2",
+      "0 ≤ ai, bi < numCourses",
+    ],
+    followUp: "Can you return the actual valid course order using topological sort (Course Schedule II)?",
   },
   {
     id: 16,
