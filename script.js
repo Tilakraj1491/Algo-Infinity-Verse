@@ -1239,7 +1239,7 @@ const practiceProblems = [
     difficulty: "easy",
     tags: ["Trees", "DFS"],
     acceptance: "68.5%",
-    ccategory: "trees",
+    category: "trees",
     description:
       "Given the root of a binary tree, invert the tree, and return its root. Inverting means swapping the left and right children of every node.",
     constraints: [
